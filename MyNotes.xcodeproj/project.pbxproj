@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		298D91C429CFE27D00A1018A /* MyNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C329CFE27D00A1018A /* MyNotesApp.swift */; };
-		298D91C629CFE27D00A1018A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C529CFE27D00A1018A /* Persistence.swift */; };
 		298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C729CFE27D00A1018A /* MyNotes.xcdatamodeld */; };
-		298D91CB29CFE27D00A1018A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91CA29CFE27D00A1018A /* ContentView.swift */; };
 		298D91CD29CFE28000A1018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298D91CC29CFE28000A1018A /* Assets.xcassets */; };
 		298D91D129CFE28000A1018A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298D91D029CFE28000A1018A /* Preview Assets.xcassets */; };
 		298D91DB29CFE28000A1018A /* MyNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91DA29CFE28000A1018A /* MyNotesTests.swift */; };
 		298D91E529CFE28000A1018A /* MyNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91E429CFE28000A1018A /* MyNotesUITests.swift */; };
 		298D91E729CFE28000A1018A /* MyNotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */; };
+		298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91F729CFE2D800A1018A /* LoginScreen.swift */; };
+		298D91FC29D011B100A1018A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91FB29D011B100A1018A /* LoginViewModel.swift */; };
+		298D91FE29D011E200A1018A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91FD29D011E200A1018A /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +39,7 @@
 /* Begin PBXFileReference section */
 		298D91C029CFE27D00A1018A /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298D91C329CFE27D00A1018A /* MyNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesApp.swift; sourceTree = "<group>"; };
-		298D91C529CFE27D00A1018A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		298D91C829CFE27D00A1018A /* MyNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyNotes.xcdatamodel; sourceTree = "<group>"; };
-		298D91CA29CFE27D00A1018A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		298D91CC29CFE28000A1018A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		298D91CE29CFE28000A1018A /* MyNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyNotes.entitlements; sourceTree = "<group>"; };
 		298D91D029CFE28000A1018A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -49,6 +48,9 @@
 		298D91E029CFE28000A1018A /* MyNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		298D91E429CFE28000A1018A /* MyNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITests.swift; sourceTree = "<group>"; };
 		298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		298D91F729CFE2D800A1018A /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		298D91FB29D011B100A1018A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		298D91FD29D011E200A1018A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,11 @@
 		298D91C229CFE27D00A1018A /* MyNotes */ = {
 			isa = PBXGroup;
 			children = (
+				298D91F629CFE2BF00A1018A /* Models */,
+				298D91F529CFE2BA00A1018A /* ViewModels */,
+				298D91F429CFE2A700A1018A /* Managers */,
+				298D91F329CFE2A100A1018A /* Views */,
 				298D91C329CFE27D00A1018A /* MyNotesApp.swift */,
-				298D91C529CFE27D00A1018A /* Persistence.swift */,
-				298D91CA29CFE27D00A1018A /* ContentView.swift */,
 				298D91CC29CFE28000A1018A /* Assets.xcassets */,
 				298D91CE29CFE28000A1018A /* MyNotes.entitlements */,
 				298D91C729CFE27D00A1018A /* MyNotes.xcdatamodeld */,
@@ -133,6 +137,37 @@
 				298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */,
 			);
 			path = MyNotesUITests;
+			sourceTree = "<group>";
+		};
+		298D91F329CFE2A100A1018A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				298D91F729CFE2D800A1018A /* LoginScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		298D91F429CFE2A700A1018A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				298D91FD29D011E200A1018A /* CoreDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		298D91F529CFE2BA00A1018A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				298D91FB29D011B100A1018A /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		298D91F629CFE2BF00A1018A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +301,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				298D91C429CFE27D00A1018A /* MyNotesApp.swift in Sources */,
-				298D91C629CFE27D00A1018A /* Persistence.swift in Sources */,
-				298D91CB29CFE27D00A1018A /* ContentView.swift in Sources */,
 				298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */,
+				298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */,
+				298D91FE29D011E200A1018A /* CoreDataManager.swift in Sources */,
+				298D91FC29D011B100A1018A /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +471,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -443,7 +479,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MauricioDias.SongIt.MyNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,7 +509,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -479,7 +517,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MauricioDias.SongIt.MyNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
