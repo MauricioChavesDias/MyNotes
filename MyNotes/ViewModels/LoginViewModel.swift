@@ -51,7 +51,9 @@ class LoginViewModel: ObservableObject {
         let authentication = authenticateLogin()
         
         if authentication.successfull {
-            showNotesScreen = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.showNotesScreen = true
+            }
         }
     }
     
@@ -66,8 +68,10 @@ class LoginViewModel: ObservableObject {
             
             manager.saveNewUser()
             
-            showSignUpScreen = false
-            showLoginScreen = true
+            username = ""
+            password = ""
+            reenterPassword = ""
+            toggleToShowLoginButtons()
         }
     }
     
@@ -83,13 +87,16 @@ class LoginViewModel: ObservableObject {
     
     private func authenticateNewUser() -> Authentication {
         authentication.successfull = true
-        authentication.message = ""
+        authentication.message = "User successfully created!"
         if username.isEmpty {
             authentication.successfull = false
             authentication.message = "User name is empty."
         } else if username.count < 3 {
             authentication.successfull = false
             authentication.message = "Username should be longer than 3 characters."
+        } else if verifySpecialCharacters(for: username) {
+            authentication.successfull = false
+            authentication.message = "Username can not contain space or special characters."
         } else if password.isEmpty {
             authentication.successfull = false
             authentication.message = "Password is empty."
@@ -102,16 +109,17 @@ class LoginViewModel: ObservableObject {
         } else if password != reenterPassword {
             authentication.successfull = false
             authentication.message = "Passwords do not match."
+        } else if getExistingUser() != nil {
+            authentication.successfull = false
+            authentication.message = "Username already in use."
         }
-        //TODO: add another condition checking if the user already exists in the database.
         
         return authentication
-
     }
     
     private func authenticateLogin() -> Authentication {
         authentication.successfull = true
-        authentication.message = ""
+        authentication.message = "You successfully logged in!"
         if username.isEmpty {
             authentication.successfull = false
             authentication.message = "User name is empty."
@@ -124,10 +132,33 @@ class LoginViewModel: ObservableObject {
         } else if password.count < 3 {
             authentication.successfull = false
             authentication.message = "Invalid password."
+        } else if getExistingUser() == nil {
+            authentication.successfull = false
+            authentication.message = "Account does not exist"
         }
-        //TODO: add another condition to check if the user exists in the database.
         
         return authentication
+    }
+    
+    private func getExistingUser() -> User? {
+        let user = CoreDataManager.shared.getUser(username: username, password: password)
+        if  user.count > 0 {
+            if user[0].username == username && user[0].password == password {
+                return user[0]
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+    
+    private func verifySpecialCharacters(for username: String) -> Bool {
+        let regex = try! NSRegularExpression(pattern: ".*[^A-Za-z0-9 ].*", options: NSRegularExpression.Options())
+        let range = NSRange(location: 0, length: username.utf16.count)
+        let containsSpecialCharsOrSpaces = regex.firstMatch(in: username, options: NSRegularExpression.MatchingOptions(), range: range) != nil || username.contains(" ")
+        
+        return containsSpecialCharsOrSpaces
     }
 
 }

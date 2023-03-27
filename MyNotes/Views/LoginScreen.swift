@@ -31,11 +31,11 @@ struct LoginScreen: View {
                         .bold()
                         .padding()
                     VStack {
-                        if !loginVM.authentication.successfull {
-                            Text(loginVM.authentication.message)
-                                .font(.subheadline)
-                                .foregroundColor(.red)
-                        }
+                        
+                        Text(loginVM.authentication.message)
+                            .font(.subheadline)
+                            .foregroundColor(loginVM.authentication.successfull ? .green : .red)
+                            .padding(.horizontal)
                         
                         TextField("Username", text: $loginVM.username)
                             .padding()

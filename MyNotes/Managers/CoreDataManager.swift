@@ -33,7 +33,8 @@ class CoreDataManager {
    
     func getUser(username: String, password: String) -> [User] {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        
+        fetchRequest.predicate = NSPredicate(format: "username == %@ and password == %@", username, password)
+
         do {
             return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch  {
