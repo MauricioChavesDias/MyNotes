@@ -13,19 +13,16 @@ struct Authentication {
     var message: String
 }
 
-class LoginViewModel: ObservableObject {
+class AuthenticationViewModel: ObservableObject {
+    @Published var userAccountViewModel = UserAccountViewModel()
+    @Published var authentication = Authentication(successfull: true, message: "")
     @Published var username = ""
     @Published var password = ""
     @Published var reenterPassword = ""
     @Published var showLoginScreen = false
     @Published var showSignUpScreen = false
     @Published var showNotesScreen = false
-    @Published var authentication = Authentication(successfull: true, message: "")
-    
-    private var wrongUserName = 0
-    private var wrongPassword = 0
 
-    
     func createButtonTapped() {
         createNewUser()
     }
@@ -33,48 +30,65 @@ class LoginViewModel: ObservableObject {
     func signedUpButtonTapped() {
         authentication.successfull = true
         authentication.message = ""
+        resetUI()
         toggleToShowSignUpButtons()
     }
     
     func cancelButtonTapped() {
         authentication.successfull = true
         authentication.message = ""
+        resetUI()
         toggleToShowLoginButtons()
     }
     
     func loginButtonTapped() {
-       //authenticateLogin()
         login()
     }
     
     private func login() {
-        let authentication = authenticateLogin()
-        
-        if authentication.successfull {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.showNotesScreen = true
+        userAccountViewModel.loadAllUserAccounts()
+        print(userAccountViewModel.userAccounts)
+        if validateSpecialCharactersLogin() {
+            if verifyUserAlreadyExists() {
+                authentication.successfull = true
+                authentication.message = "You've successfully logged in!"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.showNotesScreen = true
+                }
+            } else {
+                authentication.successfull = false
+                authentication.message = "Please try a different username or password"
             }
         }
     }
     
     private func createNewUser() {
-        let authentication = authenticateNewUser()
-        
-        if authentication.successfull {
-            let manager = CoreDataManager.shared
-            let user = User(context: manager.persistentContainer.viewContext)
-            user.username = username
-            user.password = password
-            
-            manager.saveNewUser()
-            
-            username = ""
-            password = ""
-            reenterPassword = ""
-            toggleToShowLoginButtons()
+        if validateSpecialCharactersNewUser() {
+            if !verifyUserAlreadyExists() {
+                userAccountViewModel.username = username
+                userAccountViewModel.password = password
+                userAccountViewModel.addNewUserAccount()
+                authentication.successfull = true
+                authentication.message = "User successfully created!"
+                resetUI()
+                toggleToShowLoginButtons()
+            }
         }
     }
-    
+
+    private func verifyUserAlreadyExists() -> Bool {
+        userAccountViewModel.loadAllUserAccounts()
+        let accounts = userAccountViewModel.userAccounts
+        let accountsFound = accounts.filter({ $0.username == username && $0.password == password })
+        let hasAccount = accountsFound.count > 0
+        if hasAccount {
+            let firstAccount = accountsFound.first
+            userAccountViewModel.updateCurrentUserAccount(with: firstAccount)
+        }
+        
+        return hasAccount
+    }
+        
     private func toggleToShowSignUpButtons() {
         showSignUpScreen = true
         showLoginScreen = false
@@ -85,9 +99,13 @@ class LoginViewModel: ObservableObject {
         showLoginScreen = true
     }
     
-    private func authenticateNewUser() -> Authentication {
-        authentication.successfull = true
-        authentication.message = "User successfully created!"
+    private func resetUI() {
+        username = ""
+        password = ""
+        reenterPassword = ""
+    }
+    
+    private func validateSpecialCharactersNewUser() -> Bool {
         if username.isEmpty {
             authentication.successfull = false
             authentication.message = "User name is empty."
@@ -109,17 +127,13 @@ class LoginViewModel: ObservableObject {
         } else if password != reenterPassword {
             authentication.successfull = false
             authentication.message = "Passwords do not match."
-        } else if getExistingUser() != nil {
-            authentication.successfull = false
-            authentication.message = "Username already in use."
+        } else {
+            authentication.successfull = true
         }
-        
-        return authentication
+        return authentication.successfull
     }
     
-    private func authenticateLogin() -> Authentication {
-        authentication.successfull = true
-        authentication.message = "You successfully logged in!"
+    private func validateSpecialCharactersLogin() -> Bool {
         if username.isEmpty {
             authentication.successfull = false
             authentication.message = "User name is empty."
@@ -132,29 +146,16 @@ class LoginViewModel: ObservableObject {
         } else if password.count < 3 {
             authentication.successfull = false
             authentication.message = "Invalid password."
-        } else if getExistingUser() == nil {
-            authentication.successfull = false
-            authentication.message = "Account does not exist"
+        } else {
+            authentication.successfull = true
         }
         
-        return authentication
-    }
-    
-    private func getExistingUser() -> User? {
-        let user = CoreDataManager.shared.getUser(username: username, password: password)
-        if  user.count > 0 {
-            if user[0].username == username && user[0].password == password {
-                return user[0]
-            } else {
-                return nil
-            }
-        } else {
-            return nil
-        }
+        return authentication.successfull
     }
     
     private func verifySpecialCharacters(for username: String) -> Bool {
-        let regex = try! NSRegularExpression(pattern: ".*[^A-Za-z0-9 ].*", options: NSRegularExpression.Options())
+        let expression = ".*\\d+.*"
+        let regex = try! NSRegularExpression(pattern: expression, options: NSRegularExpression.Options())
         let range = NSRange(location: 0, length: username.utf16.count)
         let containsSpecialCharsOrSpaces = regex.firstMatch(in: username, options: NSRegularExpression.MatchingOptions(), range: range) != nil || username.contains(" ")
         

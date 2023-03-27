@@ -22,7 +22,7 @@ class CoreDataManager {
         }
     }
     
-    func saveNewUser() {
+    func saveInCoreData() {
         do {
             try persistentContainer.viewContext.save()
             print("New user has been saved in the database!")
@@ -39,6 +39,27 @@ class CoreDataManager {
             return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch  {
             print("Unable to find the user in the database \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    func getUserByID(id: NSManagedObjectID) -> User? {
+        do {
+            return try persistentContainer.viewContext.existingObject(with: id) as? User
+        } catch  {
+            print("Unable to get user by ID \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    
+    func getAllUserAccounts() -> [User] {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            return try persistentContainer.viewContext.fetch(fetchRequest)
+        } catch  {
+            print("Unable to get all the user accounts from CoreData \(error.localizedDescription)")
             return []
         }
     }

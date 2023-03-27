@@ -15,8 +15,14 @@
 		298D91E529CFE28000A1018A /* MyNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91E429CFE28000A1018A /* MyNotesUITests.swift */; };
 		298D91E729CFE28000A1018A /* MyNotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */; };
 		298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91F729CFE2D800A1018A /* LoginScreen.swift */; };
-		298D91FC29D011B100A1018A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91FB29D011B100A1018A /* LoginViewModel.swift */; };
+		298D91FC29D011B100A1018A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91FB29D011B100A1018A /* AuthenticationViewModel.swift */; };
 		298D91FE29D011E200A1018A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91FD29D011E200A1018A /* CoreDataManager.swift */; };
+		29B3F33529D14FDA00411B3D /* AddNoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F33429D14FDA00411B3D /* AddNoteScreen.swift */; };
+		29B3F33829D1542D00411B3D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F33729D1542D00411B3D /* View+Extensions.swift */; };
+		29B3F33C29D15B2A00411B3D /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F33B29D15B2A00411B3D /* UserAccountViewModel.swift */; };
+		29B3F34029D1768000411B3D /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F33F29D1768000411B3D /* AddNoteViewModel.swift */; };
+		29B3F34229D17F1D00411B3D /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F34129D17F1D00411B3D /* NoteListViewModel.swift */; };
+		29B3F34429D1829C00411B3D /* NoteListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F34329D1829C00411B3D /* NoteListScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +55,14 @@
 		298D91E429CFE28000A1018A /* MyNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITests.swift; sourceTree = "<group>"; };
 		298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		298D91F729CFE2D800A1018A /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		298D91FB29D011B100A1018A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		298D91FB29D011B100A1018A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		298D91FD29D011E200A1018A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		29B3F33429D14FDA00411B3D /* AddNoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteScreen.swift; sourceTree = "<group>"; };
+		29B3F33729D1542D00411B3D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		29B3F33B29D15B2A00411B3D /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
+		29B3F33F29D1768000411B3D /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		29B3F34129D17F1D00411B3D /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
+		29B3F34329D1829C00411B3D /* NoteListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				298D91F629CFE2BF00A1018A /* Models */,
-				298D91F529CFE2BA00A1018A /* ViewModels */,
+				29B3F33629D1540F00411B3D /* Extensions */,
 				298D91F429CFE2A700A1018A /* Managers */,
-				298D91F329CFE2A100A1018A /* Views */,
+				298D91F529CFE2BA00A1018A /* ViewModels */,
+				29B3F34729D1839900411B3D /* Views */,
 				298D91C329CFE27D00A1018A /* MyNotesApp.swift */,
 				298D91CC29CFE28000A1018A /* Assets.xcassets */,
 				298D91CE29CFE28000A1018A /* MyNotes.entitlements */,
@@ -139,14 +152,6 @@
 			path = MyNotesUITests;
 			sourceTree = "<group>";
 		};
-		298D91F329CFE2A100A1018A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				298D91F729CFE2D800A1018A /* LoginScreen.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		298D91F429CFE2A700A1018A /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +163,10 @@
 		298D91F529CFE2BA00A1018A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				298D91FB29D011B100A1018A /* LoginViewModel.swift */,
+				298D91FB29D011B100A1018A /* AuthenticationViewModel.swift */,
+				29B3F33B29D15B2A00411B3D /* UserAccountViewModel.swift */,
+				29B3F33F29D1768000411B3D /* AddNoteViewModel.swift */,
+				29B3F34129D17F1D00411B3D /* NoteListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -168,6 +176,24 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		29B3F33629D1540F00411B3D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				29B3F33729D1542D00411B3D /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		29B3F34729D1839900411B3D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				298D91F729CFE2D800A1018A /* LoginScreen.swift */,
+				29B3F33429D14FDA00411B3D /* AddNoteScreen.swift */,
+				29B3F34329D1829C00411B3D /* NoteListScreen.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,11 +326,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B3F34029D1768000411B3D /* AddNoteViewModel.swift in Sources */,
 				298D91C429CFE27D00A1018A /* MyNotesApp.swift in Sources */,
 				298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */,
+				29B3F33C29D15B2A00411B3D /* UserAccountViewModel.swift in Sources */,
+				29B3F34429D1829C00411B3D /* NoteListScreen.swift in Sources */,
 				298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */,
+				29B3F33529D14FDA00411B3D /* AddNoteScreen.swift in Sources */,
 				298D91FE29D011E200A1018A /* CoreDataManager.swift in Sources */,
-				298D91FC29D011B100A1018A /* LoginViewModel.swift in Sources */,
+				29B3F33829D1542D00411B3D /* View+Extensions.swift in Sources */,
+				29B3F34229D17F1D00411B3D /* NoteListViewModel.swift in Sources */,
+				298D91FC29D011B100A1018A /* AuthenticationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
