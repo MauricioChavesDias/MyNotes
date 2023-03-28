@@ -30,8 +30,10 @@ struct NoteScreen: View {
             VStack(alignment: .center) {
                 Form {
                     TextField("Title", text: $addNoteVM.title)
+                        .font(.headline.bold())
                         .disableAutocorrection(true)
                         .focused($focusedField, equals: .title)
+    
                     TextField("Description", text: $addNoteVM.text)
                         .disableAutocorrection(true)
                     HStack(alignment: .center) {

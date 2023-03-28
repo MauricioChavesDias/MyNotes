@@ -10,7 +10,6 @@
 		291F160129D2601F00A49ED8 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160029D2601F00A49ED8 /* BaseModel.swift */; };
 		291F160329D2612400A49ED8 /* Extension+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160229D2612400A49ED8 /* Extension+User.swift */; };
 		291F160829D2732F00A49ED8 /* NoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160729D2732F00A49ED8 /* NoteScreen.swift */; };
-		291F160A29D29F3F00A49ED8 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160929D29F3F00A49ED8 /* ConfirmationView.swift */; };
 		298D91C429CFE27D00A1018A /* MyNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C329CFE27D00A1018A /* MyNotesApp.swift */; };
 		298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C729CFE27D00A1018A /* MyNotes.xcdatamodeld */; };
 		298D91CD29CFE28000A1018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298D91CC29CFE28000A1018A /* Assets.xcassets */; };
@@ -51,7 +50,6 @@
 		291F160029D2601F00A49ED8 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		291F160229D2612400A49ED8 /* Extension+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+User.swift"; sourceTree = "<group>"; };
 		291F160729D2732F00A49ED8 /* NoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteScreen.swift; sourceTree = "<group>"; };
-		291F160929D29F3F00A49ED8 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		298D91C029CFE27D00A1018A /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298D91C329CFE27D00A1018A /* MyNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesApp.swift; sourceTree = "<group>"; };
 		298D91C829CFE27D00A1018A /* MyNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyNotes.xcdatamodel; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				298D91F429CFE2A700A1018A /* Managers */,
 				298D91F529CFE2BA00A1018A /* ViewModels */,
 				291F160429D26EBD00A49ED8 /* Screens */,
-				29B3F34729D1839900411B3D /* Views */,
 				298D91C329CFE27D00A1018A /* MyNotesApp.swift */,
 				298D91CC29CFE28000A1018A /* Assets.xcassets */,
 				298D91CE29CFE28000A1018A /* MyNotes.entitlements */,
@@ -209,14 +206,6 @@
 				29B3F33729D1542D00411B3D /* View+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		29B3F34729D1839900411B3D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				291F160929D29F3F00A49ED8 /* ConfirmationView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,7 +343,6 @@
 				291F160829D2732F00A49ED8 /* NoteScreen.swift in Sources */,
 				298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */,
 				291F160129D2601F00A49ED8 /* BaseModel.swift in Sources */,
-				291F160A29D29F3F00A49ED8 /* ConfirmationView.swift in Sources */,
 				29B3F33C29D15B2A00411B3D /* UserAccountViewModel.swift in Sources */,
 				29B3F34429D1829C00411B3D /* NoteListScreen.swift in Sources */,
 				298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */,
@@ -516,11 +504,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyNotes/MyNotes.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyNotes/Preview Content\"";
+				DEVELOPMENT_TEAM = VNL3823F55;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -529,15 +520,16 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MauricioDias.SongIt.MyNotes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MauricioDias.MyNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -554,11 +546,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyNotes/MyNotes.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyNotes/Preview Content\"";
+				DEVELOPMENT_TEAM = VNL3823F55;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -567,15 +562,16 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MauricioDias.SongIt.MyNotes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MauricioDias.MyNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
