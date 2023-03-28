@@ -22,8 +22,11 @@ class AuthenticationViewModel: ObservableObject {
     @Published var showLoginScreen = false
     @Published var showSignUpScreen = false
     @Published var showNotesScreen = false
+    
+    var currentUserAccount: UserViewModel?
 
     func createButtonTapped() {
+        authentication.message = ""
         createNewUser()
     }
     
@@ -52,7 +55,7 @@ class AuthenticationViewModel: ObservableObject {
             if verifyUserAlreadyExists() {
                 authentication.successfull = true
                 authentication.message = "You've successfully logged in!"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                     self.showNotesScreen = true
                 }
             } else {
@@ -65,13 +68,16 @@ class AuthenticationViewModel: ObservableObject {
     private func createNewUser() {
         if validateSpecialCharactersNewUser() {
             if !verifyUserAlreadyExists() {
-                userAccountViewModel.username = username
-                userAccountViewModel.password = password
+                userAccountViewModel.username = username.lowercased()
+                userAccountViewModel.password = password.lowercased()
                 userAccountViewModel.addNewUserAccount()
                 authentication.successfull = true
                 authentication.message = "User successfully created!"
                 resetUI()
                 toggleToShowLoginButtons()
+            } else {
+                authentication.successfull = false
+                authentication.message = "Username already taken. Please, choose another one."
             }
         }
     }
@@ -79,11 +85,12 @@ class AuthenticationViewModel: ObservableObject {
     private func verifyUserAlreadyExists() -> Bool {
         userAccountViewModel.loadAllUserAccounts()
         let accounts = userAccountViewModel.userAccounts
-        let accountsFound = accounts.filter({ $0.username == username && $0.password == password })
+        let accountsFound = accounts.filter({ $0.username.lowercased() == username.lowercased() && $0.password.lowercased() == password.lowercased() })
         let hasAccount = accountsFound.count > 0
         if hasAccount {
-            let firstAccount = accountsFound.first
-            userAccountViewModel.updateCurrentUserAccount(with: firstAccount)
+            let accountInUse = accountsFound.first
+            self.currentUserAccount = accountInUse
+           // userAccountViewModel.updateCurrentUserAccount(with: firstAccount)
         }
         
         return hasAccount
@@ -121,6 +128,9 @@ class AuthenticationViewModel: ObservableObject {
         } else if password.count < 3 {
             authentication.successfull = false
             authentication.message = "Password should be longer than 3 characteres."
+        } else if verifySpecialCharacters(for: password) {
+            authentication.successfull = false
+            authentication.message = "Password can not contain space or special characters."
         } else if reenterPassword.isEmpty {
             authentication.successfull = false
             authentication.message = "Re-enter password is empty."
@@ -154,12 +164,11 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     private func verifySpecialCharacters(for username: String) -> Bool {
-        let expression = ".*\\d+.*"
+        let expression = "(?<=\\w)[^a-zA-Z0-9]+(?=\\w)"
         let regex = try! NSRegularExpression(pattern: expression, options: NSRegularExpression.Options())
         let range = NSRange(location: 0, length: username.utf16.count)
         let containsSpecialCharsOrSpaces = regex.firstMatch(in: username, options: NSRegularExpression.MatchingOptions(), range: range) != nil || username.contains(" ")
-        
+
         return containsSpecialCharsOrSpaces
     }
-
 }

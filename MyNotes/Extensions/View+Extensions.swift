@@ -13,8 +13,9 @@ extension View {
     func embedInNavigationView() -> some View {
         NavigationView { self }
             .onAppear {
-                //To change the Title color
+                //To change tint color of the Title and bar Title Color.
                 UINavigationBar.appearance().largeTitleTextAttributes =  [.foregroundColor: UIColor(.accentColor)]
+                UINavigationBar.appearance().barTintColor = UIColor(.accentColor)
             }
     }
 }

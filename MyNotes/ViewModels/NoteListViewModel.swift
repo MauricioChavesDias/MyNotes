@@ -16,26 +16,34 @@ struct NoteViewModel {
     }
     
     var title: String {
-        return note.text ?? "No Title"
+        return note.title ?? "No Title"
     }
     
     var text: String {
-        return note.text ?? ""
+        return note.text ?? "No Description"
     }
 }
 
 class NoteListViewModel: ObservableObject {
     
     @Published var notes = [NoteViewModel]()
+    @Published var showAddNoteScreen: Bool = false
     
-    func getNotesByUser(userAccountVM: UserAccountViewModel) {
-        
-        if let currentUserAccount = userAccountVM.currentUserAccount {
-            if let user = CoreDataManager.shared.getUserByID(id: currentUserAccount.id) {
-                DispatchQueue.main.async {
-                    self.notes = (user.notes?.allObjects as! [Note]).map(NoteViewModel.init)
-                }
+    func addNoteButtonTapped() {
+        showAddNoteScreen.toggle()
+    }
+    
+    func loadAllNotesByUser(user: UserViewModel?) {
+        if let currentUser = user {
+            DispatchQueue.main.async {
+                self.notes = Note.getNotesByUserId(userID: currentUser.id).map(NoteViewModel.init)
             }
+        }
+    }
+    
+    func delete(_ note: NoteViewModel) {
+        if let noteTobeDeleted = Note.getNoteByID(id: note.noteId) {
+            noteTobeDeleted.delete()
         }
     }
 }

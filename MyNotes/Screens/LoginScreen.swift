@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @StateObject private var loginVM = AuthenticationViewModel()
+    @StateObject var authenticationVM = AuthenticationViewModel()
     
     @State private var username = ""
     @State private var password = ""
     @State private var reenterPassword = ""
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -33,45 +33,47 @@ struct LoginScreen: View {
                         .padding()
                     VStack {
                         //Message - Status
-                        Text(loginVM.authentication.message)
+                        Text(authenticationVM.authentication.message)
                             .font(.subheadline)
-                            .foregroundColor(loginVM.authentication.successfull ? .green : .red)
+                            .foregroundColor(authenticationVM.authentication.successfull ? .green : .red)
                             .padding(.horizontal)
                         //Username
-                        TextField("", text: $loginVM.username, prompt: Text("Username").foregroundColor(.black.opacity(0.2)))
+                        TextField("", text: $authenticationVM.username, prompt: Text("Username").foregroundColor(.black.opacity(0.2)))
+                            .disableAutocorrection(true)
                             .padding()
                             .frame(width: 300, height:  50)
                             .background(Color.black.opacity(0.05))
                             .foregroundColor(Color.black)
                             .cornerRadius(10)
-                            .border(.red, width: loginVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
+                            .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
                         
                         //Password
-                        SecureField("", text: $loginVM.password, prompt: Text("Password").foregroundColor(.black.opacity(0.2)))
+                        SecureField("", text: $authenticationVM.password, prompt: Text("Password").foregroundColor(.black.opacity(0.2)))
+                            .disableAutocorrection(true)
                             .padding()
                             .frame(width: 300, height:  50)
                             .background(Color.black.opacity(0.05))
                             .foregroundColor(Color.black)
                             .cornerRadius(10)
-                            .border(.red, width: loginVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
+                            .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
                         
-                        if loginVM.showSignUpScreen {
+                        if authenticationVM.showSignUpScreen {
                             //Re-enter Password
-                            SecureField("Re-enter Password", text: $loginVM.reenterPassword)
+                            SecureField("Re-enter Password", text: $authenticationVM.reenterPassword)           .disableAutocorrection(true)
                                 .padding()
                                 .frame(width: 300, height:  50)
                                 .background(Color.black.opacity(0.05))
                                 .cornerRadius(10)
-                                .border(.red, width: loginVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
+                                .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
                         }
-
-                        Button(loginVM.showSignUpScreen ? "Create" : "Login") {
-                            if loginVM.showSignUpScreen {
+                        
+                        Button(authenticationVM.showSignUpScreen ? "Create" : "Login") {
+                            if authenticationVM.showSignUpScreen {
                                 //Create a new user account
-                                loginVM.createButtonTapped()
+                                authenticationVM.createButtonTapped()
                             } else {
                                 //Login to an existing user
-                                loginVM.loginButtonTapped()
+                                authenticationVM.loginButtonTapped()
                             }
                         }
                         .foregroundColor(.white)
@@ -79,37 +81,39 @@ struct LoginScreen: View {
                         .background(Color.green)
                         .cornerRadius(10)
                         
-                        Button(!loginVM.showSignUpScreen ? "Sign up" : "Cancel") {
-                            if !loginVM.showSignUpScreen {
-                                loginVM.signedUpButtonTapped()
+                        Button(!authenticationVM.showSignUpScreen ? "Sign up" : "Cancel") {
+                            if !authenticationVM.showSignUpScreen {
+                                authenticationVM.signedUpButtonTapped()
                             } else {
-                                loginVM.cancelButtonTapped()
+                                authenticationVM.cancelButtonTapped()
                             }
                         }
                         .foregroundColor(.green.opacity(0.9))
-
+                        
+                        
                         //Navigation to the Notes
-                        NavigationLink(isActive: $loginVM.showNotesScreen) {
-                            NoteListScreen()
+                        NavigationLink(isActive: $authenticationVM.showNotesScreen) {
+                            NoteListScreen(currentUser: authenticationVM.currentUserAccount)
                                 .navigationBarBackButtonHidden(true)
                                 .navigationBarHidden(true)
+                                .environmentObject(authenticationVM)
                         } label: {
                             EmptyView()
                         }
-               
+                        
                     }
                 }
             }
         }
-        .onAppear {
-            
-        }
+    
+        
     }
 }
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
         LoginScreen()
+            .environment(\.managedObjectContext, CoreDataManager.shared.persistentContainer.viewContext)
     }
 }
 

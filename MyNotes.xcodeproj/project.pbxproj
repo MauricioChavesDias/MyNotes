@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291F160129D2601F00A49ED8 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160029D2601F00A49ED8 /* BaseModel.swift */; };
+		291F160329D2612400A49ED8 /* Extension+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160229D2612400A49ED8 /* Extension+User.swift */; };
+		291F160829D2732F00A49ED8 /* NoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160729D2732F00A49ED8 /* NoteScreen.swift */; };
 		298D91C429CFE27D00A1018A /* MyNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C329CFE27D00A1018A /* MyNotesApp.swift */; };
 		298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C729CFE27D00A1018A /* MyNotes.xcdatamodeld */; };
 		298D91CD29CFE28000A1018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298D91CC29CFE28000A1018A /* Assets.xcassets */; };
@@ -23,6 +26,7 @@
 		29B3F34029D1768000411B3D /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F33F29D1768000411B3D /* AddNoteViewModel.swift */; };
 		29B3F34229D17F1D00411B3D /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F34129D17F1D00411B3D /* NoteListViewModel.swift */; };
 		29B3F34429D1829C00411B3D /* NoteListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F34329D1829C00411B3D /* NoteListScreen.swift */; };
+		29B3F34B29D1B63000411B3D /* Extension+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3F34A29D1B63000411B3D /* Extension+Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		291F160029D2601F00A49ED8 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		291F160229D2612400A49ED8 /* Extension+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+User.swift"; sourceTree = "<group>"; };
+		291F160729D2732F00A49ED8 /* NoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteScreen.swift; sourceTree = "<group>"; };
 		298D91C029CFE27D00A1018A /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298D91C329CFE27D00A1018A /* MyNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesApp.swift; sourceTree = "<group>"; };
 		298D91C829CFE27D00A1018A /* MyNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyNotes.xcdatamodel; sourceTree = "<group>"; };
@@ -63,6 +70,7 @@
 		29B3F33F29D1768000411B3D /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		29B3F34129D17F1D00411B3D /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
 		29B3F34329D1829C00411B3D /* NoteListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListScreen.swift; sourceTree = "<group>"; };
+		29B3F34A29D1B63000411B3D /* Extension+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Note.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		291F160429D26EBD00A49ED8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				298D91F729CFE2D800A1018A /* LoginScreen.swift */,
+				29B3F33429D14FDA00411B3D /* AddNoteScreen.swift */,
+				29B3F34329D1829C00411B3D /* NoteListScreen.swift */,
+				291F160729D2732F00A49ED8 /* NoteScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		298D91B729CFE27D00A1018A = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +136,7 @@
 				29B3F33629D1540F00411B3D /* Extensions */,
 				298D91F429CFE2A700A1018A /* Managers */,
 				298D91F529CFE2BA00A1018A /* ViewModels */,
+				291F160429D26EBD00A49ED8 /* Screens */,
 				29B3F34729D1839900411B3D /* Views */,
 				298D91C329CFE27D00A1018A /* MyNotesApp.swift */,
 				298D91CC29CFE28000A1018A /* Assets.xcassets */,
@@ -174,6 +194,9 @@
 		298D91F629CFE2BF00A1018A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				29B3F34A29D1B63000411B3D /* Extension+Note.swift */,
+				291F160229D2612400A49ED8 /* Extension+User.swift */,
+				291F160029D2601F00A49ED8 /* BaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,9 +212,6 @@
 		29B3F34729D1839900411B3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				298D91F729CFE2D800A1018A /* LoginScreen.swift */,
-				29B3F33429D14FDA00411B3D /* AddNoteScreen.swift */,
-				29B3F34329D1829C00411B3D /* NoteListScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,14 +348,18 @@
 			files = (
 				29B3F34029D1768000411B3D /* AddNoteViewModel.swift in Sources */,
 				298D91C429CFE27D00A1018A /* MyNotesApp.swift in Sources */,
+				291F160829D2732F00A49ED8 /* NoteScreen.swift in Sources */,
 				298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */,
+				291F160129D2601F00A49ED8 /* BaseModel.swift in Sources */,
 				29B3F33C29D15B2A00411B3D /* UserAccountViewModel.swift in Sources */,
 				29B3F34429D1829C00411B3D /* NoteListScreen.swift in Sources */,
 				298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */,
 				29B3F33529D14FDA00411B3D /* AddNoteScreen.swift in Sources */,
 				298D91FE29D011E200A1018A /* CoreDataManager.swift in Sources */,
 				29B3F33829D1542D00411B3D /* View+Extensions.swift in Sources */,
+				29B3F34B29D1B63000411B3D /* Extension+Note.swift in Sources */,
 				29B3F34229D17F1D00411B3D /* NoteListViewModel.swift in Sources */,
+				291F160329D2612400A49ED8 /* Extension+User.swift in Sources */,
 				298D91FC29D011B100A1018A /* AuthenticationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

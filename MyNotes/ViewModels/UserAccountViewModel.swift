@@ -26,19 +26,17 @@ struct UserViewModel {
 }
 
 class UserAccountViewModel: ObservableObject {
-    var currentUserAccount: UserViewModel?
     @Published var userAccounts = [UserViewModel]()
     @Published var username = ""
     @Published var password = ""
     
     func addNewUserAccount() {
         if !username.isEmpty && !password.isEmpty {
-            let manager = CoreDataManager.shared
-            let account = User(context: manager.persistentContainer.viewContext)
+            let account = User(context: CoreDataManager.shared.viewContext)
             account.username = username
             account.password = password
             
-            manager.saveInCoreData()
+            account.save()
         }
     }
     
@@ -46,7 +44,7 @@ class UserAccountViewModel: ObservableObject {
         if userAccounts.count > 0 {
             userAccounts.removeAll()
         }
-        let users = CoreDataManager.shared.getAllUserAccounts()
+        let users = User.getAllUserAccounts()
         self.userAccounts = users.map(UserViewModel.init)
     }
     
@@ -59,11 +57,11 @@ class UserAccountViewModel: ObservableObject {
         }
     }
     
-    func updateCurrentUserAccount(with user: UserViewModel?) {
-        if let accountInUse = user {
-            currentUserAccount = accountInUse
-        }
-    }
+//    func updateCurrentUserAccount(with user: UserViewModel?) -> UserViewModel {
+//        if let accountInUse = user {
+//            currentUserAccount = accountInUse
+//        }
+//    }
     
 }
 
