@@ -59,7 +59,9 @@ struct LoginScreen: View {
                         
                         if authenticationVM.showSignUpScreen {
                             //Re-enter Password
-                            SecureField("Re-enter Password", text: $authenticationVM.reenterPassword)           .disableAutocorrection(true)
+                            SecureField("", text: $authenticationVM.reenterPassword, prompt:
+                                            Text("Re-enter Password").foregroundColor(.black.opacity(0.2)))
+                                .disableAutocorrection(true)
                                 .padding()
                                 .frame(width: 300, height:  50)
                                 .background(Color.black.opacity(0.05))
