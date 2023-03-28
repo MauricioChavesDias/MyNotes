@@ -13,18 +13,46 @@ class AddNoteViewModel: ObservableObject {
     @Published var text: String = ""
     @Published var dismissAddNoteScreen: Bool = false
     
-    
     func addNewNote(user: UserViewModel?) {
         if let currentUser = user {
             let saveUser = User.getUserByID(id: currentUser.id)
             let note = Note(context: CoreDataManager.shared.viewContext)
             note.user = saveUser
-            note.title = title
-            note.text = text
+            note.title = title.isEmpty ? "No Title" : title
+            note.text = text.isEmpty ? "No Description" : text
             
             note.save()
             resetUI()
             dismissScreen()
+        }
+    }
+    
+    func editNote(note: NoteViewModel?) {
+        if let safeNote = note {
+            if let foundNote = Note.getNoteByID(id: safeNote.noteId) {
+                foundNote.title = title.isEmpty ? "No Title" : title
+                foundNote.text = text.isEmpty ? "No Description" : text
+                foundNote.save()
+                resetUI()
+                dismissScreen()
+            }
+        }
+    }
+    
+    func deleteNote(note: NoteViewModel?) {
+        if let safeNote = note {
+            if let foundNote = Note.getNoteByID(id: safeNote.noteId) {
+                foundNote.delete()
+            }
+        }
+    }
+    
+    func loadNoteInTheUI(note: NoteViewModel?) {
+        if let safeNote = note {
+            if let foundNote = Note.getNoteByID(id: safeNote.noteId) {
+                title = foundNote.title ?? ""
+                text = foundNote.text ?? ""
+            }
         }
     }
     
@@ -36,17 +64,4 @@ class AddNoteViewModel: ObservableObject {
         title = ""
         text = ""
     }
-    
-//    func addNoteForUser(vm: UserAccountViewModel) {
-//        
-//        if let accountInUse = vm.currentUserAccount {
-//            let user = CoreDataManager.shared.getUserByID(id: accountInUse.id)
-//            let note = Note(context: CoreDataManager.shared.persistentContainer.viewContext)
-//            note.user = user
-//            note.title = title
-//            note.text = text
-//            
-//            CoreDataManager.shared.saveInCoreData()
-//        }
-//    }
 }

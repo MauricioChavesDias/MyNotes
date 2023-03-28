@@ -19,7 +19,7 @@ struct NoteListScreen: View {
                 ForEach(noteListViewModel.notes, id: \.noteId) { note in
                     //Navigation to the edit a note
                     NavigationLink {
-                      
+                      NoteScreen(note: note)
                         
                     } label: {
                         VStack(alignment: .leading) {

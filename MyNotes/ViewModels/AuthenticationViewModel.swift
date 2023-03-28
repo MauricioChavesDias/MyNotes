@@ -55,7 +55,7 @@ class AuthenticationViewModel: ObservableObject {
             if verifyUserAlreadyExists() {
                 authentication.successfull = true
                 authentication.message = "You've successfully logged in!"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self.showNotesScreen = true
                 }
             } else {

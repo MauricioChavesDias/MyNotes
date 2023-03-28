@@ -9,15 +9,19 @@ import SwiftUI
 
 struct AddNoteScreen: View {
     @Environment(\.dismiss) private var dismiss
+    
     @StateObject private var addNoteVM = AddNoteViewModel()
+    
     @Binding var showView: Bool
+    
     @State private var title: String = ""
     @State private var text: String = ""
+    
     @FocusState private var focusedField: Fields?
     
     private enum Fields: Hashable {
         case title
-        //in case there is more fields add here
+        //in case there is more fields to focus on the screen add here
     }
     
     var currentUser: UserViewModel?
@@ -35,8 +39,6 @@ struct AddNoteScreen: View {
                     Button("Save") {
                         addNoteVM.addNewNote(user: currentUser)
                         dismiss()
-                        //addNoteVM.dismissAddNoteScreen
-                        //presentationMode.wrappedValue.dismiss()
                     }
                     Spacer()
                 }
