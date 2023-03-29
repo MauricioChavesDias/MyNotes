@@ -37,9 +37,11 @@ struct LoginScreen: View {
                             .font(.subheadline)
                             .foregroundColor(authenticationVM.authentication.successfull ? .green : .red)
                             .padding(.horizontal)
+                            .accessibilityIdentifier("messageStatus")
                         //Username
                         TextField("", text: $authenticationVM.username, prompt: Text("Username").foregroundColor(.black.opacity(0.2)))
                             .disableAutocorrection(true)
+                            .accessibilityIdentifier("usernameTextField")
                             .padding()
                             .frame(width: 300, height:  50)
                             .background(Color.black.opacity(0.05))
@@ -50,23 +52,29 @@ struct LoginScreen: View {
                         //Password
                         SecureField("", text: $authenticationVM.password, prompt: Text("Password").foregroundColor(.black.opacity(0.2)))
                             .disableAutocorrection(true)
+                            .accessibilityIdentifier("passwordTextField")
                             .padding()
                             .frame(width: 300, height:  50)
                             .background(Color.black.opacity(0.05))
                             .foregroundColor(Color.black)
                             .cornerRadius(10)
+                            .textContentType(.oneTimeCode)
                             .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
+                
                         
                         if authenticationVM.showSignUpScreen {
                             //Re-enter Password
                             SecureField("", text: $authenticationVM.reenterPassword, prompt:
                                             Text("Re-enter Password").foregroundColor(.black.opacity(0.2)))
                                 .disableAutocorrection(true)
+                                .accessibilityIdentifier("rePasswordTextField")
                                 .padding()
                                 .frame(width: 300, height:  50)
                                 .background(Color.black.opacity(0.05))
                                 .cornerRadius(10)
+                                .textContentType(.oneTimeCode)
                                 .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
+                         
                         }
                         
                         Button(authenticationVM.showSignUpScreen ? "Create" : "Login") {
@@ -82,6 +90,7 @@ struct LoginScreen: View {
                         .frame(width: 300, height: 50)
                         .background(Color.green)
                         .cornerRadius(10)
+                        .accessibilityIdentifier("loginOrCreateButton")
                         
                         Button(!authenticationVM.showSignUpScreen ? "Sign up" : "Cancel") {
                             if !authenticationVM.showSignUpScreen {
@@ -90,8 +99,8 @@ struct LoginScreen: View {
                                 authenticationVM.cancelButtonTapped()
                             }
                         }
+                        .accessibilityIdentifier("signUpOrCancelButton")
                         .foregroundColor(.green.opacity(0.9))
-                        
                         
                         //Navigation to the Notes
                         NavigationLink(isActive: $authenticationVM.showNotesScreen) {
@@ -107,8 +116,6 @@ struct LoginScreen: View {
                 }
             }
         }
-    
-        
     }
 }
 

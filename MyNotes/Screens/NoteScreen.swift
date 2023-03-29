@@ -30,10 +30,10 @@ struct NoteScreen: View {
             VStack(alignment: .center) {
                 Form {
                     TextField("Title", text: $addNoteVM.title)
-                        .font(.headline.bold())
-                        .disableAutocorrection(true)
-                        .focused($focusedField, equals: .title)
-    
+                    .font(.headline.bold())
+                    .accessibilityIdentifier("titleAddNoteButton") // Not working on xCode 14.2
+                    .disableAutocorrection(true)
+                    .focused($focusedField, equals: .title)
                     TextField("Description", text: $addNoteVM.text)
                         .disableAutocorrection(true)
                     HStack(alignment: .center) {
@@ -42,6 +42,7 @@ struct NoteScreen: View {
                             addNoteVM.editNote(note: note)
                             dismiss()
                         }
+                        .accessibilityIdentifier("saveNoteButton")
                         Spacer()
                     }
                 }
@@ -61,7 +62,7 @@ struct NoteScreen: View {
                                 dismiss()
                             }
                         }
-
+                        
                     }
                 }
                 .navigationTitle("Edit Note")

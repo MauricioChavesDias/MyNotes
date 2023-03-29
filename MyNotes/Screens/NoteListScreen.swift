@@ -42,6 +42,7 @@ struct NoteListScreen: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
+                        .accessibilityIdentifier("editButton")
                 }
                 ToolbarItem {
                     Button {
@@ -49,6 +50,7 @@ struct NoteListScreen: View {
                     } label: {
                         Label("Add Note", systemImage: "plus")
                     }
+                    .accessibilityIdentifier("addNoteButton")
                 }
             }
             .sheet(isPresented: $noteListViewModel.showAddNoteScreen) {
@@ -60,7 +62,9 @@ struct NoteListScreen: View {
             .onAppear {
                 noteListViewModel.loadAllNotesByUser(user: currentUser)
             }
+            .accessibilityIdentifier("navigationNotesList")
             .embedInNavigationView()
+
         }
     }
     
