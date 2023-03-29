@@ -44,6 +44,9 @@ class NoteListViewModel: ObservableObject {
     func delete(_ note: NoteViewModel) {
         if let noteTobeDeleted = Note.getNoteByID(id: note.noteId) {
             noteTobeDeleted.delete()
+            if let index = notes.firstIndex(where: { $0.noteId == note.noteId }) {
+                notes.remove(at: index)
+            }
         }
     }
 }

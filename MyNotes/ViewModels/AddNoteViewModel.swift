@@ -33,7 +33,6 @@ class AddNoteViewModel: ObservableObject {
                 foundNote.title = title.isEmpty ? "No Title" : title
                 foundNote.text = text.isEmpty ? "No Description" : text
                 foundNote.save()
-                resetUI()
                 dismissScreen()
             }
         }
@@ -47,7 +46,7 @@ class AddNoteViewModel: ObservableObject {
         }
     }
     
-    func loadNoteInTheUI(note: NoteViewModel?) {
+    func loadNote(note: NoteViewModel?) {
         if let safeNote = note {
             if let foundNote = Note.getNoteByID(id: safeNote.noteId) {
                 title = foundNote.title ?? ""

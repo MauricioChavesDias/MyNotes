@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291C954829D3B23A00F1CC8C /* NoteListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954729D3B23A00F1CC8C /* NoteListViewModelTests.swift */; };
+		291C954A29D3B2B800F1CC8C /* AddNoteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954929D3B2B800F1CC8C /* AddNoteViewModelTests.swift */; };
+		291C954E29D3B2E900F1CC8C /* UserAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954D29D3B2E900F1CC8C /* UserAccountViewModelTests.swift */; };
+		291C955029D3B2FD00F1CC8C /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954F29D3B2FD00F1CC8C /* AuthenticationViewModel.swift */; };
 		291F160129D2601F00A49ED8 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160029D2601F00A49ED8 /* BaseModel.swift */; };
 		291F160329D2612400A49ED8 /* Extension+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160229D2612400A49ED8 /* Extension+User.swift */; };
 		291F160829D2732F00A49ED8 /* NoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F160729D2732F00A49ED8 /* NoteScreen.swift */; };
@@ -14,7 +18,6 @@
 		298D91C929CFE27D00A1018A /* MyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 298D91C729CFE27D00A1018A /* MyNotes.xcdatamodeld */; };
 		298D91CD29CFE28000A1018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298D91CC29CFE28000A1018A /* Assets.xcassets */; };
 		298D91D129CFE28000A1018A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298D91D029CFE28000A1018A /* Preview Assets.xcassets */; };
-		298D91DB29CFE28000A1018A /* MyNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91DA29CFE28000A1018A /* MyNotesTests.swift */; };
 		298D91E529CFE28000A1018A /* MyNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91E429CFE28000A1018A /* MyNotesUITests.swift */; };
 		298D91E729CFE28000A1018A /* MyNotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */; };
 		298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D91F729CFE2D800A1018A /* LoginScreen.swift */; };
@@ -48,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		29053EEE29D302D200E6CA3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		291C954729D3B23A00F1CC8C /* NoteListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModelTests.swift; sourceTree = "<group>"; };
+		291C954929D3B2B800F1CC8C /* AddNoteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModelTests.swift; sourceTree = "<group>"; };
+		291C954D29D3B2E900F1CC8C /* UserAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModelTests.swift; sourceTree = "<group>"; };
+		291C954F29D3B2FD00F1CC8C /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		291F160029D2601F00A49ED8 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		291F160229D2612400A49ED8 /* Extension+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+User.swift"; sourceTree = "<group>"; };
 		291F160729D2732F00A49ED8 /* NoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteScreen.swift; sourceTree = "<group>"; };
@@ -58,7 +65,6 @@
 		298D91CE29CFE28000A1018A /* MyNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyNotes.entitlements; sourceTree = "<group>"; };
 		298D91D029CFE28000A1018A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		298D91D629CFE28000A1018A /* MyNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		298D91DA29CFE28000A1018A /* MyNotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesTests.swift; sourceTree = "<group>"; };
 		298D91E029CFE28000A1018A /* MyNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		298D91E429CFE28000A1018A /* MyNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITests.swift; sourceTree = "<group>"; };
 		298D91E629CFE28000A1018A /* MyNotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -159,7 +165,10 @@
 		298D91D929CFE28000A1018A /* MyNotesTests */ = {
 			isa = PBXGroup;
 			children = (
-				298D91DA29CFE28000A1018A /* MyNotesTests.swift */,
+				291C954729D3B23A00F1CC8C /* NoteListViewModelTests.swift */,
+				291C954929D3B2B800F1CC8C /* AddNoteViewModelTests.swift */,
+				291C954D29D3B2E900F1CC8C /* UserAccountViewModelTests.swift */,
+				291C954F29D3B2FD00F1CC8C /* AuthenticationViewModel.swift */,
 			);
 			path = MyNotesTests;
 			sourceTree = "<group>";
@@ -362,7 +371,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				298D91DB29CFE28000A1018A /* MyNotesTests.swift in Sources */,
+				291C954A29D3B2B800F1CC8C /* AddNoteViewModelTests.swift in Sources */,
+				291C955029D3B2FD00F1CC8C /* AuthenticationViewModel.swift in Sources */,
+				291C954E29D3B2E900F1CC8C /* UserAccountViewModelTests.swift in Sources */,
+				291C954829D3B23A00F1CC8C /* NoteListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

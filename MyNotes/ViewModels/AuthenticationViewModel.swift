@@ -65,7 +65,7 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
-    private func createNewUser() {
+    func createNewUser() {
         if validateSpecialCharactersNewUser() {
             if !verifyUserAlreadyExists() {
                 userAccountViewModel.username = username.lowercased()
@@ -163,11 +163,11 @@ class AuthenticationViewModel: ObservableObject {
         return authentication.successfull
     }
     
-    private func verifySpecialCharacters(for username: String) -> Bool {
+    private func verifySpecialCharacters(for word: String) -> Bool {
         let expression = "(?<=\\w)[^a-zA-Z0-9]+(?=\\w)"
         let regex = try! NSRegularExpression(pattern: expression, options: NSRegularExpression.Options())
-        let range = NSRange(location: 0, length: username.utf16.count)
-        let containsSpecialCharsOrSpaces = regex.firstMatch(in: username, options: NSRegularExpression.MatchingOptions(), range: range) != nil || username.contains(" ")
+        let range = NSRange(location: 0, length: word.utf16.count)
+        let containsSpecialCharsOrSpaces = regex.firstMatch(in: word, options: NSRegularExpression.MatchingOptions(), range: range) != nil || word.contains(" ")
 
         return containsSpecialCharsOrSpaces
     }

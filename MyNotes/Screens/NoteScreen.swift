@@ -66,7 +66,7 @@ struct NoteScreen: View {
                 }
                 .navigationTitle("Edit Note")
                 .onAppear {
-                    addNoteVM.loadNoteInTheUI(note: note)
+                    addNoteVM.loadNote(note: note)
                 }
             }
             

@@ -48,20 +48,24 @@ class UserAccountViewModel: ObservableObject {
         self.userAccounts = users.map(UserViewModel.init)
     }
     
-    func checkExistingUserAccount(from user: UserViewModel) -> UserViewModel? {
-        let user = userAccounts.filter { $0.username == user.username && $0.password == user.password }
+//    func checkExistingUserAccount(from user: UserViewModel) -> UserViewModel? {
+//        let user = userAccounts.filter { $0.username == user.username && $0.password == user.password }
+//        if user.count > 0 {
+//            return user[0]
+//        } else {
+//            return nil
+//        }
+//    }
+    
+    func checkingExistingUserAccountBy(username: String, password: String) -> UserViewModel? {
+        loadAllUserAccounts()
+        let user = userAccounts.filter { $0.username == username && $0.password == password }
         if user.count > 0 {
             return user[0]
         } else {
             return nil
         }
     }
-    
-//    func updateCurrentUserAccount(with user: UserViewModel?) -> UserViewModel {
-//        if let accountInUse = user {
-//            currentUserAccount = accountInUse
-//        }
-//    }
     
 }
 
