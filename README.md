@@ -1,23 +1,23 @@
 ![Begin Banner](Documentation/readme-begin-banner-mau.png)
 
-# <img src= Documentation/logo.png  height="60" width="60 style="border-radius:20%"> My Notes 
+# <img src= Documentation/logo.png  height="60" width="60" style="border-radius: 20%;"> My Notes 
 
 
 ## Description
 
 My Notes is an app that you keep all of your thought in just one place. Here you can add notes to never forget you have forgotten! 
 
-## Screenshot
-|       Core Data App       ||       Running       |
-|:---------------------:||:---------------------:|
-|<img src= Documentation/app.png  height="375" width="175" style="border-radius:20%>|<img src= Documentation/Running.gif  height="375" width="175" style="border-radius:20%>|
+## Showcase
+|       Brand      |       Running       |
+|:---------------------:|:--------------------:|
+|<img src= Documentation/App.png  height="375" width="195" style="border-radius: 20%;">|<img src= Documentation/Running.gif  height="375" width="195"  style="border-radius: 20%;">|
 
 
 ## Test Coverage
 |       Test Coverage Report       |
 |:---------------------:|
-|<img src= Documentation/test_coverage.png>|
-|       Unit tests       |
+|<img src= Documentation/test_coverage.png style="border-radius: 20%;">|
+|       Test Result       |
 |<img src= Documentation/unit_tests.png>|
 
 
@@ -39,3 +39,7 @@ My Notes is an app that you keep all of your thought in just one place. Here you
 >This project is part created as part of an assignment project from St Johns.
 
 ![End Banner](Documentation/readme-end-banner-mau.png)
+
+#myImage {
+  border-radius: 20%;
+}
