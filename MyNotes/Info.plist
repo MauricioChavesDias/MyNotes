@@ -5,7 +5,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageRespectsSafeAreaInsets</key>
-		<true/>
+		<false/>
 		<key>UIColorName</key>
 		<string>accentColor</string>
 		<key>UIImageName</key>

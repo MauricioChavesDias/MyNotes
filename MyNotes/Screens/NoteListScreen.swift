@@ -20,7 +20,6 @@ struct NoteListScreen: View {
                     //Navigation to the edit a note
                     NavigationLink {
                       NoteScreen(note: note)
-                        
                     } label: {
                         VStack(alignment: .leading) {
                             Text(note.title)
@@ -38,6 +37,7 @@ struct NoteListScreen: View {
                 }
                 .onDelete(perform : deleteNotes)
             }
+            .accessibility(identifier: "notesList")
             .navigationTitle("Notes")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

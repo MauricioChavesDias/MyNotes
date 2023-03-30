@@ -24,7 +24,6 @@ struct NoteScreen: View {
         //in case there is more fields to focus on the screen add here
     }
     
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             VStack(alignment: .center) {
@@ -54,6 +53,7 @@ struct NoteScreen: View {
                             Label("", systemImage: "trash")
                                 .foregroundColor(.red.opacity(0.5))
                         }
+                        .accessibilityIdentifier("deleteNoteButton")
                         .confirmationDialog("Are you sure?",
                                             isPresented: $presentsDeleteDialog) {
                             Button("Delete", role: .destructive) {
@@ -62,7 +62,6 @@ struct NoteScreen: View {
                                 dismiss()
                             }
                         }
-                        
                     }
                 }
                 .navigationTitle("Edit Note")
@@ -70,7 +69,6 @@ struct NoteScreen: View {
                     addNoteVM.loadNote(note: note)
                 }
             }
-            
             Spacer()
         }
     }

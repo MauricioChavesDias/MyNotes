@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		290B369D29D53ACC0004C799 /* TextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B369C29D53ACC0004C799 /* TextFieldViewModifier.swift */; };
+		290B369F29D53B330004C799 /* SecureFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B369E29D53B330004C799 /* SecureFieldViewModifier.swift */; };
 		291C954829D3B23A00F1CC8C /* NoteListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954729D3B23A00F1CC8C /* NoteListViewModelTests.swift */; };
 		291C954A29D3B2B800F1CC8C /* AddNoteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954929D3B2B800F1CC8C /* AddNoteViewModelTests.swift */; };
 		291C954E29D3B2E900F1CC8C /* UserAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C954D29D3B2E900F1CC8C /* UserAccountViewModelTests.swift */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		29053EEE29D302D200E6CA3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		290B369C29D53ACC0004C799 /* TextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifier.swift; sourceTree = "<group>"; };
+		290B369E29D53B330004C799 /* SecureFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldViewModifier.swift; sourceTree = "<group>"; };
 		291C954729D3B23A00F1CC8C /* NoteListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModelTests.swift; sourceTree = "<group>"; };
 		291C954929D3B2B800F1CC8C /* AddNoteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModelTests.swift; sourceTree = "<group>"; };
 		291C954D29D3B2E900F1CC8C /* UserAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModelTests.swift; sourceTree = "<group>"; };
@@ -105,9 +109,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290B369B29D53AAB0004C799 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				290B369C29D53ACC0004C799 /* TextFieldViewModifier.swift */,
+				290B369E29D53B330004C799 /* SecureFieldViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		291F160429D26EBD00A49ED8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				290B369B29D53AAB0004C799 /* ViewModifiers */,
 				298D91F729CFE2D800A1018A /* LoginScreen.swift */,
 				29B3F33429D14FDA00411B3D /* AddNoteScreen.swift */,
 				291F160729D2732F00A49ED8 /* NoteScreen.swift */,
@@ -358,9 +372,11 @@
 				29B3F34429D1829C00411B3D /* NoteListScreen.swift in Sources */,
 				298D91F829CFE2D800A1018A /* LoginScreen.swift in Sources */,
 				29B3F33529D14FDA00411B3D /* AddNoteScreen.swift in Sources */,
+				290B369D29D53ACC0004C799 /* TextFieldViewModifier.swift in Sources */,
 				298D91FE29D011E200A1018A /* CoreDataManager.swift in Sources */,
 				29B3F33829D1542D00411B3D /* View+Extensions.swift in Sources */,
 				29B3F34B29D1B63000411B3D /* Extension+Note.swift in Sources */,
+				290B369F29D53B330004C799 /* SecureFieldViewModifier.swift in Sources */,
 				29B3F34229D17F1D00411B3D /* NoteListViewModel.swift in Sources */,
 				291F160329D2612400A49ED8 /* Extension+User.swift in Sources */,
 				298D91FC29D011B100A1018A /* AuthenticationViewModel.swift in Sources */,

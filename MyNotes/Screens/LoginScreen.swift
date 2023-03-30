@@ -40,41 +40,25 @@ struct LoginScreen: View {
                             .accessibilityIdentifier("messageStatus")
                         //Username
                         TextField("", text: $authenticationVM.username, prompt: Text("Username").foregroundColor(.black.opacity(0.2)))
-                            .disableAutocorrection(true)
                             .accessibilityIdentifier("usernameTextField")
-                            .padding()
-                            .frame(width: 300, height:  50)
-                            .background(Color.black.opacity(0.05))
-                            .foregroundColor(Color.black)
-                            .cornerRadius(10)
+                            .textFieldModifier()
                             .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
                         
                         //Password
                         SecureField("", text: $authenticationVM.password, prompt: Text("Password").foregroundColor(.black.opacity(0.2)))
-                            .disableAutocorrection(true)
                             .accessibilityIdentifier("passwordTextField")
-                            .padding()
-                            .frame(width: 300, height:  50)
-                            .background(Color.black.opacity(0.05))
-                            .foregroundColor(Color.black)
-                            .cornerRadius(10)
-                            .textContentType(.oneTimeCode)
+                            .secureFieldModifier()
                             .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
-                
+                        
                         
                         if authenticationVM.showSignUpScreen {
                             //Re-enter Password
                             SecureField("", text: $authenticationVM.reenterPassword, prompt:
                                             Text("Re-enter Password").foregroundColor(.black.opacity(0.2)))
-                                .disableAutocorrection(true)
-                                .accessibilityIdentifier("rePasswordTextField")
-                                .padding()
-                                .frame(width: 300, height:  50)
-                                .background(Color.black.opacity(0.05))
-                                .cornerRadius(10)
-                                .textContentType(.oneTimeCode)
-                                .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
-                         
+                            .accessibilityIdentifier("rePasswordTextField")
+                            .secureFieldModifier()
+                            .border(.red, width: authenticationVM.authentication.successfull ? CGFloat(0) : CGFloat(2))
+                            
                         }
                         
                         Button(authenticationVM.showSignUpScreen ? "Create" : "Login") {

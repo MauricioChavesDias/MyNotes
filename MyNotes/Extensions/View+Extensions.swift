@@ -18,4 +18,13 @@ extension View {
                 UINavigationBar.appearance().barTintColor = UIColor(.accentColor)
             }
     }
+    
+    func textFieldModifier() -> some View {
+        self.modifier(TextFieldViewModifier())
+    }
+    
+    func secureFieldModifier() -> some View {
+        self.modifier(SecureFieldViewModifier())
+    }
+    
 }
