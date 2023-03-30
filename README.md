@@ -39,7 +39,3 @@ My Notes is an app that you keep all of your thought in just one place. Here you
 >This project is part created as part of an assignment project from St Johns.
 
 ![End Banner](Documentation/readme-end-banner-mau.png)
-
-#myImage {
-  border-radius: 20%;
-}
