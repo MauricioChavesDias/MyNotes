@@ -62,8 +62,10 @@ final class MyNotesUITests: XCTestCase {
     private func validating_login_throught_the_signUp() {
         // When the there is an error in these credentials we need to force go back to the login page tapping cancel button
         XCTAssertTrue(!validatesLoginCredentialsToTestSpecialCharacters(username: "john01", password: "Ab01@1"))
+        XCTAssertTrue(app.buttons["signUpOrCancelButton"].waitForExistence(timeout: 0.5))
         app.buttons["signUpOrCancelButton"].tap()
         XCTAssertTrue(!validatesLoginCredentialsToTestSpecialCharacters(username: "nikita", password: "ZoPW_98"))
+        XCTAssertTrue(app.buttons["signUpOrCancelButton"].waitForExistence(timeout: 0.5))
         app.buttons["signUpOrCancelButton"].tap()
         
         XCTAssertTrue(validatesLoginCredentialsToTestSpecialCharacters(username: "mike_", password: "20Mike"))
